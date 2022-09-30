@@ -29,6 +29,7 @@
 		1D5474CA28E6730600B54DA3 /* AstronautDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5474C928E6730600B54DA3 /* AstronautDetailViewModel.swift */; };
 		1D5474CC28E6733500B54DA3 /* TableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5474CB28E6733500B54DA3 /* TableHeaderView.swift */; };
 		1D78799D28E6C2B3007F0F3B /* AstronautDetailViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78799C28E6C2B3007F0F3B /* AstronautDetailViewController+TableView.swift */; };
+		1D7879A028E6C91D007F0F3B /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D78799F28E6C91D007F0F3B /* UIImageView+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		1D5474C928E6730600B54DA3 /* AstronautDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautDetailViewModel.swift; sourceTree = "<group>"; };
 		1D5474CB28E6733500B54DA3 /* TableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHeaderView.swift; sourceTree = "<group>"; };
 		1D78799C28E6C2B3007F0F3B /* AstronautDetailViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AstronautDetailViewController+TableView.swift"; sourceTree = "<group>"; };
+		1D78799F28E6C91D007F0F3B /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 				1D54749A28E664D200B54DA3 /* Presentation */,
 				1D54749B28E664DA00B54DA3 /* Domain */,
 				1D54749C28E665FC00B54DA3 /* Services */,
+				1D78799E28E6C8FD007F0F3B /* Utilities */,
 				1D54748E28E6649700B54DA3 /* Assets.xcassets */,
 				1D54749328E6649700B54DA3 /* astronauts.entitlements */,
 			);
@@ -186,6 +189,14 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		1D78799E28E6C8FD007F0F3B /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				1D78799F28E6C91D007F0F3B /* UIImageView+Extensions.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -272,6 +283,7 @@
 				1D5474C328E6729300B54DA3 /* AstronautTableCellView.swift in Sources */,
 				1D5474A028E6662400B54DA3 /* AstronautsListUseCase.swift in Sources */,
 				1D5474BA28E66DF100B54DA3 /* AstronautDetail.swift in Sources */,
+				1D7879A028E6C91D007F0F3B /* UIImageView+Extensions.swift in Sources */,
 				1D5474A428E6664900B54DA3 /* APIService.swift in Sources */,
 				1D5474B828E66DD700B54DA3 /* AstronautList.swift in Sources */,
 				1D5474C628E672B600B54DA3 /* LoadingView.swift in Sources */,
