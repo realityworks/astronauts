@@ -23,6 +23,11 @@
 		1D5474BA28E66DF100B54DA3 /* AstronautDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5474B928E66DF100B54DA3 /* AstronautDetail.swift */; };
 		1D5474BC28E66E7C00B54DA3 /* Astronaut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5474BB28E66E7C00B54DA3 /* Astronaut.swift */; };
 		1D5474BF28E6702100B54DA3 /* TinyConstraints in Frameworks */ = {isa = PBXBuildFile; productRef = 1D5474BE28E6702100B54DA3 /* TinyConstraints */; };
+		1D5474C328E6729300B54DA3 /* AstronautTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5474C228E6729300B54DA3 /* AstronautTableCellView.swift */; };
+		1D5474C628E672B600B54DA3 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5474C528E672B600B54DA3 /* LoadingView.swift */; };
+		1D5474C828E672F400B54DA3 /* AstronautListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5474C728E672F400B54DA3 /* AstronautListViewModel.swift */; };
+		1D5474CA28E6730600B54DA3 /* AstronautDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5474C928E6730600B54DA3 /* AstronautDetailViewModel.swift */; };
+		1D5474CC28E6733500B54DA3 /* TableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5474CB28E6733500B54DA3 /* TableHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +48,11 @@
 		1D5474B728E66DD700B54DA3 /* AstronautList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautList.swift; sourceTree = "<group>"; };
 		1D5474B928E66DF100B54DA3 /* AstronautDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautDetail.swift; sourceTree = "<group>"; };
 		1D5474BB28E66E7C00B54DA3 /* Astronaut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Astronaut.swift; sourceTree = "<group>"; };
+		1D5474C228E6729300B54DA3 /* AstronautTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautTableCellView.swift; sourceTree = "<group>"; };
+		1D5474C528E672B600B54DA3 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		1D5474C728E672F400B54DA3 /* AstronautListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautListViewModel.swift; sourceTree = "<group>"; };
+		1D5474C928E6730600B54DA3 /* AstronautDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautDetailViewModel.swift; sourceTree = "<group>"; };
+		1D5474CB28E6733500B54DA3 /* TableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,8 +108,9 @@
 		1D54749A28E664D200B54DA3 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				1D5474AE28E666C800B54DA3 /* AstronautListViewController.swift */,
-				1D5474B028E666D600B54DA3 /* AstronautDetailViewController.swift */,
+				1D5474C428E672A400B54DA3 /* Components */,
+				1D5474C128E6727300B54DA3 /* AstronautDetail */,
+				1D5474C028E6726000B54DA3 /* AstronautList */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -142,6 +153,34 @@
 				1D5474B928E66DF100B54DA3 /* AstronautDetail.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		1D5474C028E6726000B54DA3 /* AstronautList */ = {
+			isa = PBXGroup;
+			children = (
+				1D5474AE28E666C800B54DA3 /* AstronautListViewController.swift */,
+				1D5474C728E672F400B54DA3 /* AstronautListViewModel.swift */,
+				1D5474C228E6729300B54DA3 /* AstronautTableCellView.swift */,
+				1D5474CB28E6733500B54DA3 /* TableHeaderView.swift */,
+			);
+			path = AstronautList;
+			sourceTree = "<group>";
+		};
+		1D5474C128E6727300B54DA3 /* AstronautDetail */ = {
+			isa = PBXGroup;
+			children = (
+				1D5474B028E666D600B54DA3 /* AstronautDetailViewController.swift */,
+				1D5474C928E6730600B54DA3 /* AstronautDetailViewModel.swift */,
+			);
+			path = AstronautDetail;
+			sourceTree = "<group>";
+		};
+		1D5474C428E672A400B54DA3 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				1D5474C528E672B600B54DA3 /* LoadingView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,13 +259,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D5474CC28E6733500B54DA3 /* TableHeaderView.swift in Sources */,
+				1D5474C828E672F400B54DA3 /* AstronautListViewModel.swift in Sources */,
+				1D5474CA28E6730600B54DA3 /* AstronautDetailViewModel.swift in Sources */,
 				1D5474A728E6665900B54DA3 /* MockAPIService.swift in Sources */,
 				1D5474B128E666D600B54DA3 /* AstronautDetailViewController.swift in Sources */,
 				1D5474AF28E666C800B54DA3 /* AstronautListViewController.swift in Sources */,
+				1D5474C328E6729300B54DA3 /* AstronautTableCellView.swift in Sources */,
 				1D5474A028E6662400B54DA3 /* AstronautsListUseCase.swift in Sources */,
 				1D5474BA28E66DF100B54DA3 /* AstronautDetail.swift in Sources */,
 				1D5474A428E6664900B54DA3 /* APIService.swift in Sources */,
 				1D5474B828E66DD700B54DA3 /* AstronautList.swift in Sources */,
+				1D5474C628E672B600B54DA3 /* LoadingView.swift in Sources */,
 				1D5474B528E6683C00B54DA3 /* UseCase.swift in Sources */,
 				1D5474BC28E66E7C00B54DA3 /* Astronaut.swift in Sources */,
 				1D5474A928E6666800B54DA3 /* LiveAPIService.swift in Sources */,
@@ -367,6 +411,7 @@
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -398,6 +443,7 @@
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",

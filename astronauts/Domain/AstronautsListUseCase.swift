@@ -14,6 +14,4 @@ class AstronautsListUseCase: UseCase {
     // Load astronauts
 
     // Load astronaut detail
-
-    // Sort astronaut list
 }
