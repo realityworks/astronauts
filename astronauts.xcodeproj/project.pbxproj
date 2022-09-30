@@ -1,0 +1,460 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1D54748B28E6649600B54DA3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D54748A28E6649600B54DA3 /* AppDelegate.swift */; };
+		1D54748F28E6649700B54DA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D54748E28E6649700B54DA3 /* Assets.xcassets */; };
+		1D5474A028E6662400B54DA3 /* AstronautsListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D54749F28E6662400B54DA3 /* AstronautsListUseCase.swift */; };
+		1D5474A228E6663000B54DA3 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5474A128E6663000B54DA3 /* Store.swift */; };
+		1D5474A428E6664900B54DA3 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5474A328E6664900B54DA3 /* APIService.swift */; };
+		1D5474A728E6665900B54DA3 /* MockAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5474A628E6665900B54DA3 /* MockAPIService.swift */; };
+		1D5474A928E6666800B54DA3 /* LiveAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5474A828E6666800B54DA3 /* LiveAPIService.swift */; };
+		1D5474AB28E6667D00B54DA3 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D5474AA28E6667D00B54DA3 /* Launch Screen.storyboard */; };
+		1D5474AF28E666C800B54DA3 /* AstronautListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5474AE28E666C800B54DA3 /* AstronautListViewController.swift */; };
+		1D5474B128E666D600B54DA3 /* AstronautDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5474B028E666D600B54DA3 /* AstronautDetailViewController.swift */; };
+		1D5474B328E6674100B54DA3 /* UseCaseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5474B228E6674100B54DA3 /* UseCaseFactory.swift */; };
+		1D5474B528E6683C00B54DA3 /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5474B428E6683C00B54DA3 /* UseCase.swift */; };
+		1D5474B828E66DD700B54DA3 /* AstronautList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5474B728E66DD700B54DA3 /* AstronautList.swift */; };
+		1D5474BA28E66DF100B54DA3 /* AstronautDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5474B928E66DF100B54DA3 /* AstronautDetail.swift */; };
+		1D5474BC28E66E7C00B54DA3 /* Astronaut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5474BB28E66E7C00B54DA3 /* Astronaut.swift */; };
+		1D5474BF28E6702100B54DA3 /* TinyConstraints in Frameworks */ = {isa = PBXBuildFile; productRef = 1D5474BE28E6702100B54DA3 /* TinyConstraints */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1D54748728E6649600B54DA3 /* astronauts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = astronauts.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D54748A28E6649600B54DA3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1D54748E28E6649700B54DA3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1D54749328E6649700B54DA3 /* astronauts.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = astronauts.entitlements; sourceTree = "<group>"; };
+		1D54749F28E6662400B54DA3 /* AstronautsListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautsListUseCase.swift; sourceTree = "<group>"; };
+		1D5474A128E6663000B54DA3 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		1D5474A328E6664900B54DA3 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		1D5474A628E6665900B54DA3 /* MockAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPIService.swift; sourceTree = "<group>"; };
+		1D5474A828E6666800B54DA3 /* LiveAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveAPIService.swift; sourceTree = "<group>"; };
+		1D5474AA28E6667D00B54DA3 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		1D5474AE28E666C800B54DA3 /* AstronautListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautListViewController.swift; sourceTree = "<group>"; };
+		1D5474B028E666D600B54DA3 /* AstronautDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautDetailViewController.swift; sourceTree = "<group>"; };
+		1D5474B228E6674100B54DA3 /* UseCaseFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseFactory.swift; sourceTree = "<group>"; };
+		1D5474B428E6683C00B54DA3 /* UseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCase.swift; sourceTree = "<group>"; };
+		1D5474B728E66DD700B54DA3 /* AstronautList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautList.swift; sourceTree = "<group>"; };
+		1D5474B928E66DF100B54DA3 /* AstronautDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautDetail.swift; sourceTree = "<group>"; };
+		1D5474BB28E66E7C00B54DA3 /* Astronaut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Astronaut.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D54748428E6649600B54DA3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D5474BF28E6702100B54DA3 /* TinyConstraints in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1D54747E28E6649600B54DA3 = {
+			isa = PBXGroup;
+			children = (
+				1D54748928E6649600B54DA3 /* astronauts */,
+				1D54748828E6649600B54DA3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1D54748828E6649600B54DA3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1D54748728E6649600B54DA3 /* astronauts.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1D54748928E6649600B54DA3 /* astronauts */ = {
+			isa = PBXGroup;
+			children = (
+				1D54749928E664C600B54DA3 /* App */,
+				1D54749A28E664D200B54DA3 /* Presentation */,
+				1D54749B28E664DA00B54DA3 /* Domain */,
+				1D54749C28E665FC00B54DA3 /* Services */,
+				1D54748E28E6649700B54DA3 /* Assets.xcassets */,
+				1D54749328E6649700B54DA3 /* astronauts.entitlements */,
+			);
+			path = astronauts;
+			sourceTree = "<group>";
+		};
+		1D54749928E664C600B54DA3 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				1D54748A28E6649600B54DA3 /* AppDelegate.swift */,
+				1D5474AA28E6667D00B54DA3 /* Launch Screen.storyboard */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		1D54749A28E664D200B54DA3 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				1D5474AE28E666C800B54DA3 /* AstronautListViewController.swift */,
+				1D5474B028E666D600B54DA3 /* AstronautDetailViewController.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		1D54749B28E664DA00B54DA3 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				1D5474B428E6683C00B54DA3 /* UseCase.swift */,
+				1D54749F28E6662400B54DA3 /* AstronautsListUseCase.swift */,
+				1D5474A128E6663000B54DA3 /* Store.swift */,
+				1D5474B228E6674100B54DA3 /* UseCaseFactory.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		1D54749C28E665FC00B54DA3 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				1D5474A528E6664E00B54DA3 /* APIService */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		1D5474A528E6664E00B54DA3 /* APIService */ = {
+			isa = PBXGroup;
+			children = (
+				1D5474B628E66AED00B54DA3 /* Model */,
+				1D5474A328E6664900B54DA3 /* APIService.swift */,
+				1D5474A628E6665900B54DA3 /* MockAPIService.swift */,
+				1D5474A828E6666800B54DA3 /* LiveAPIService.swift */,
+			);
+			path = APIService;
+			sourceTree = "<group>";
+		};
+		1D5474B628E66AED00B54DA3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1D5474BB28E66E7C00B54DA3 /* Astronaut.swift */,
+				1D5474B728E66DD700B54DA3 /* AstronautList.swift */,
+				1D5474B928E66DF100B54DA3 /* AstronautDetail.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1D54748628E6649600B54DA3 /* astronauts */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D54749628E6649700B54DA3 /* Build configuration list for PBXNativeTarget "astronauts" */;
+			buildPhases = (
+				1D54748328E6649600B54DA3 /* Sources */,
+				1D54748428E6649600B54DA3 /* Frameworks */,
+				1D54748528E6649600B54DA3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = astronauts;
+			packageProductDependencies = (
+				1D5474BE28E6702100B54DA3 /* TinyConstraints */,
+			);
+			productName = astronauts;
+			productReference = 1D54748728E6649600B54DA3 /* astronauts.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1D54747F28E6649600B54DA3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1400;
+				LastUpgradeCheck = 1400;
+				TargetAttributes = {
+					1D54748628E6649600B54DA3 = {
+						CreatedOnToolsVersion = 14.0;
+					};
+				};
+			};
+			buildConfigurationList = 1D54748228E6649600B54DA3 /* Build configuration list for PBXProject "astronauts" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1D54747E28E6649600B54DA3;
+			packageReferences = (
+				1D5474BD28E6702100B54DA3 /* XCRemoteSwiftPackageReference "TinyConstraints" */,
+			);
+			productRefGroup = 1D54748828E6649600B54DA3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1D54748628E6649600B54DA3 /* astronauts */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1D54748528E6649600B54DA3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D5474AB28E6667D00B54DA3 /* Launch Screen.storyboard in Resources */,
+				1D54748F28E6649700B54DA3 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D54748328E6649600B54DA3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D5474A728E6665900B54DA3 /* MockAPIService.swift in Sources */,
+				1D5474B128E666D600B54DA3 /* AstronautDetailViewController.swift in Sources */,
+				1D5474AF28E666C800B54DA3 /* AstronautListViewController.swift in Sources */,
+				1D5474A028E6662400B54DA3 /* AstronautsListUseCase.swift in Sources */,
+				1D5474BA28E66DF100B54DA3 /* AstronautDetail.swift in Sources */,
+				1D5474A428E6664900B54DA3 /* APIService.swift in Sources */,
+				1D5474B828E66DD700B54DA3 /* AstronautList.swift in Sources */,
+				1D5474B528E6683C00B54DA3 /* UseCase.swift in Sources */,
+				1D5474BC28E66E7C00B54DA3 /* Astronaut.swift in Sources */,
+				1D5474A928E6666800B54DA3 /* LiveAPIService.swift in Sources */,
+				1D54748B28E6649600B54DA3 /* AppDelegate.swift in Sources */,
+				1D5474B328E6674100B54DA3 /* UseCaseFactory.swift in Sources */,
+				1D5474A228E6663000B54DA3 /* Store.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1D54749428E6649700B54DA3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1D54749528E6649700B54DA3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		1D54749728E6649700B54DA3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = astronauts/astronauts.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = U9E7JWZWR9;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Piotr-Suwara.astronauts";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		1D54749828E6649700B54DA3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = astronauts/astronauts.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = U9E7JWZWR9;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Piotr-Suwara.astronauts";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1D54748228E6649600B54DA3 /* Build configuration list for PBXProject "astronauts" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D54749428E6649700B54DA3 /* Debug */,
+				1D54749528E6649700B54DA3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1D54749628E6649700B54DA3 /* Build configuration list for PBXNativeTarget "astronauts" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D54749728E6649700B54DA3 /* Debug */,
+				1D54749828E6649700B54DA3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1D5474BD28E6702100B54DA3 /* XCRemoteSwiftPackageReference "TinyConstraints" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/roberthein/TinyConstraints.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1D5474BE28E6702100B54DA3 /* TinyConstraints */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1D5474BD28E6702100B54DA3 /* XCRemoteSwiftPackageReference "TinyConstraints" */;
+			productName = TinyConstraints;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 1D54747F28E6649600B54DA3 /* Project object */;
+}
