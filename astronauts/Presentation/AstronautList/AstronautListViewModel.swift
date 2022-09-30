@@ -8,9 +8,13 @@
 import Foundation
 
 protocol AstronautListViewModelDelegate {
-
+    func didLoadAstronautData()
 }
 
 class AstronautListViewModel {
+    var delegate: AstronautListViewModelDelegate?
 
+    func load() {
+
+    }
 }

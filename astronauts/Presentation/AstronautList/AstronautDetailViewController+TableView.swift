@@ -13,7 +13,14 @@ extension AstronautListViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+
+        // Get a cell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: AstronautTableViewCell.identifier) as? AstronautTableViewCell else {
+            return UITableViewCell()
+        }
+
+        // Update from model
+        return cell
     }
 }
 

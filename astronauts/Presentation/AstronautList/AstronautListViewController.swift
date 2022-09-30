@@ -34,11 +34,39 @@ class AstronautListViewController: UIViewController {
     }
 
     private func style() {
+        self.view.addSubview(tableView)
+        tableView.edgesToSuperview()
+        tableView.allowsSelection = false
+        tableView.estimatedRowHeight = 140
+        tableView.estimatedSectionHeaderHeight = 60
 
+        tableView.sectionHeaderHeight = UITableView.automaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
+
+        tableView.separatorStyle = .none
+
+        title = "ASTRONAUTS"
     }
 
     private func configure() {
-        
+        // Setup data bindings and registrations
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(AstronautTableViewCell.self, forCellReuseIdentifier: AstronautTableViewCell.identifier)
+
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to reload")
+        refreshControl.addTarget(self, action: #selector(reload), for: UIControl.Event.valueChanged)
+        tableView.addSubview(refreshControl)
+
+        viewModel.delegate = self
+    }
+
+    // MARK: Load
+
+    @objc
+    private func reload(sender: AnyObject) {
+        viewModel.load()
+        self.refreshControl.endRefreshing()
     }
 
     /*
@@ -51,4 +79,12 @@ class AstronautListViewController: UIViewController {
     }
     */
 
+}
+
+// MARK: View Model Delegate
+
+extension AstronautListViewController: AstronautListViewModelDelegate {
+    func didLoadAstronautData() {
+        // TODO: Implement
+    }
 }
