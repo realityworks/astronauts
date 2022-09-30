@@ -23,8 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Override point for customization after application launch.
         let vc = AstronautListViewController()
-        let nvc = UINavigationController()
-        nvc.pushViewController(vc, animated: false)
+        let nvc = UINavigationController(rootViewController: vc)
+
         self.window?.rootViewController = nvc
         self.window?.makeKeyAndVisible()
         return true
