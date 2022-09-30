@@ -7,25 +7,9 @@
 
 import Foundation
 
-protocol StoreDelegate {
-    func astronautListUpdated() -> AstronautList?
-    func astronautDetailUpdated() -> AstronautDetail?
-    func error() -> String?
-}
-
-/// Don't like this, but it's better than making all models a struct.
-/// If we use KVO, our models need to be structs.
-/// This is why it's better to use either RxSwift, Combine or promises for stream of value
-
-extension StoreDelegate {
-    func astronautListUpdated() -> AstronautList? { nil }
-    func astronautDetailUpdated() -> AstronautDetail? { nil }
-    func error() -> String? { nil }
-}
-
 /// Store for access to app state. Initailise with use cases.
 
-class Store: NSObject {
+@objc class Store: NSObject {
     static let shared: Store = Store()
 
 
@@ -45,8 +29,29 @@ class Store: NSObject {
     }
 
     // MARK: State management
+
     /// In a scaled application we would use either KVO, delegate, Promises, RxSwift,  or Combine
-    var astronautList: AstronautList? = nil
-    var astronautDetail: AstronautDetail? = nil
-    var error: String? = nil
+    var astronautList: AstronautList? = nil {
+        didSet {
+            astronautListListener.forEach { $0(astronautList) }
+        }
+    }
+    var astronautListListener: [(AstronautList?)->()] = []
+
+    var astronautDetail: AstronautDetail? = nil  {
+        didSet {
+            astronautDetailListener.forEach { $0(astronautDetail) }
+        }
+    }
+
+    var astronautDetailListener: [(AstronautDetail?)->()] = []
+    
+
+    var error: String? = nil {
+        didSet {
+            astronautDetailListener.forEach { $0(astronautDetail) }
+        }
+    }
+
+    var errorListener: [(String?)->()] = []
 }

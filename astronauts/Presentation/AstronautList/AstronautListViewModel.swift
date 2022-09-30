@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+protocol AstronautListViewModelDelegate {
+
+}
+
+class AstronautListViewModel {
+
+}
