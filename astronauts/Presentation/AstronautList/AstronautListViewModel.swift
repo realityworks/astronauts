@@ -13,7 +13,6 @@ protocol AstronautListViewModelDelegate {
 }
 
 class AstronautListViewModel {
-
     private let store: Store
     private let astronautListUseCase: AstronautsListUseCase?
     private var astronautListUpdater: AstronautListUpdater? = nil
@@ -60,6 +59,20 @@ class AstronautListViewModel {
 extension AstronautListViewModel {
     var numberOfAstronaughts: Int {
         store.astronautList?.count ?? 0
+    }
+
+    func astronautAt(index: Int) -> Astronaut? {
+        guard let list = store.astronautList else {
+            store.errorOccured("No astronaut list")
+            return nil
+        }
+
+        guard index < list.count else {
+            store.errorOccured("This is beyond the end of the astronaut list")
+            return nil
+        }
+
+        return list.results[index]
     }
 }
 

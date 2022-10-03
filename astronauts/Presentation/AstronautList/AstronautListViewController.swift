@@ -15,7 +15,7 @@ class AstronautListViewController: UIViewController {
     // MARK: View
 
     let tableView = UITableView(frame: .zero, style: .plain)
-    let loadingView = UIView()
+    let loadingView = LoadingView()
     let refreshControl = UIRefreshControl()
 
     init() {
@@ -36,6 +36,7 @@ class AstronautListViewController: UIViewController {
 
     private func style() {
         self.view.addSubview(tableView)
+        self.view.addSubview(loadingView)
 
         // Setup TableView
         tableView.edgesToSuperview()
@@ -49,9 +50,12 @@ class AstronautListViewController: UIViewController {
         tableView.separatorStyle = .none
 
         // Setup LoadingView
+        loadingView.edgesToSuperview()
+        loadingView.isHidden = true
 
-
+        // Main view setup
         title = "ASTRONAUTS"
+        view.backgroundColor = .lightGray
     }
 
     private func configure() {
