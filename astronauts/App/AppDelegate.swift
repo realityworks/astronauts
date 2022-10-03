@@ -13,6 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
+        // Must be done before creating any ViewControllers
+        
         let useCaseFactory = UseCaseFactory()
         useCaseFactory.register(
             useCase: AstronautsListUseCase.self,
@@ -20,6 +22,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         )
 
         Store.initialise(useCases: useCaseFactory)
+
+        // Basic error handling
+        Store.shared.errorListener.append { [unowned self] error in
+            let alertVC = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+            self.window?.rootViewController?.present(alertVC, animated: true)
+        }
 
         // Override point for customization after application launch.
         let vc = AstronautListViewController()

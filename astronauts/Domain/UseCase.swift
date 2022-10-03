@@ -10,9 +10,3 @@ import Foundation
 protocol UseCase: AnyObject {
     var store: Store { get }
 }
-
-extension UseCase {
-    var store: Store {
-        Store.shared
-    }
-}

@@ -11,7 +11,70 @@ import Foundation
 /// It shows how good design works in apps.
 
 class AstronautsListUseCase: UseCase {
+
+    let store: Store
+    private let apiService: APIService
+
+    init(dependencies: Dependencies = .mock) {
+        self.store = dependencies.store
+        self.apiService = dependencies.apiService
+    }
+
     // Load astronauts
+    func loadAstronauts() {
+        apiService.loadAstronoutsList { [weak self] list, error in
+            guard let self = self else {
+                return
+            }
+
+            if let error = error {
+                self.store.errorOccured(error)
+                return
+            }
+
+            self.store.astronautList = list
+        }
+    }
 
     // Load astronaut detail
+    func loadAstronautDetails(for astronaut: Astronaut) {
+        apiService.loadAstronautDetail(for: astronaut) { [weak self] detail, error in
+            guard let self = self else {
+                return
+            }
+
+            if let error = error {
+                self.store.errorOccured(error)
+                return
+            }
+
+            self.store.astronautDetail = detail
+        }
+    }
 }
+
+// MARK: Dependencies
+
+/// Use case dependencies consiste of the store and the API Services. Generally the store here is for writing
+
+extension AstronautsListUseCase {
+    struct Dependencies {
+        let store: Store
+        let apiService: APIService
+
+//        static var real: Dependencies = {
+//            Dependencies(
+//                APIService: RealApiService.instance
+//            )
+//        }()
+
+        static var mock: Dependencies = {
+            Dependencies(
+                store: Store.shared,
+                apiService: MockAPIService.instance
+            )
+        }()
+    }
+}
+
+

@@ -15,6 +15,7 @@ class AstronautListViewController: UIViewController {
     // MARK: View
 
     let tableView = UITableView(frame: .zero, style: .plain)
+    let loadingView = UIView()
     let refreshControl = UIRefreshControl()
 
     init() {
@@ -35,6 +36,8 @@ class AstronautListViewController: UIViewController {
 
     private func style() {
         self.view.addSubview(tableView)
+
+        // Setup TableView
         tableView.edgesToSuperview()
         tableView.allowsSelection = false
         tableView.estimatedRowHeight = 140
@@ -44,6 +47,9 @@ class AstronautListViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
 
         tableView.separatorStyle = .none
+
+        // Setup LoadingView
+
 
         title = "ASTRONAUTS"
     }
@@ -84,7 +90,14 @@ class AstronautListViewController: UIViewController {
 // MARK: View Model Delegate
 
 extension AstronautListViewController: AstronautListViewModelDelegate {
-    func didLoadAstronautData() {
-        // TODO: Implement
+    func startLoading() {
+        tableView.isHidden = true
+        loadingView.isHidden = false
+    }
+
+    func didLoadData() {
+        tableView.reloadData()
+        tableView.isHidden = false
+        loadingView.isHidden = true
     }
 }

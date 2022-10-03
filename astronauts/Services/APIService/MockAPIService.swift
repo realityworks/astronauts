@@ -7,9 +7,13 @@
 
 import Foundation
 
-class MockAPIService {
+class MockAPIService: APIService {
+    static var instance: MockAPIService = .init()
+
+    private init() {}
+
     func loadAstronoutsList(
-        completionHandler: @escaping (AstronautList) -> Void
+        completionHandler: @escaping (AstronautList?, Error?) -> Void
     ) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             let astronauts: [Astronaut] = [
@@ -19,6 +23,7 @@ class MockAPIService {
                     profile_image_thumbnail: "https://img.icons8.com/ios/500/swift--v1.png"
                 )
             ]
+
             let astronautList: AstronautList = .init(
                 count: 1,
                 next: nil,
@@ -26,13 +31,13 @@ class MockAPIService {
                 results: astronauts
             )
 
-            completionHandler(astronautList)
+            completionHandler(astronautList, nil)
         }
     }
 
     func loadAstronautDetail(
         for astronaut: Astronaut,
-        completionHandler: @escaping (AstronautDetail) -> ()
+        completionHandler: @escaping (AstronautDetail?, Error?) -> ()
     ) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             let astronautDetail: AstronautDetail = .init(
@@ -40,7 +45,7 @@ class MockAPIService {
                 date_of_birth: "25 Jan 2021"
             )
 
-            completionHandler(astronautDetail)
+            completionHandler(astronautDetail, nil)
         }
     }
 }

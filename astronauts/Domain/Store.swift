@@ -28,30 +28,35 @@ import Foundation
         return useCaseFactory.build(type)
     }
 
+    func errorOccured(_ newError: Error) {
+        // Handle error state management
+        error = newError
+    }
+
     // MARK: State management
 
     /// In a scaled application we would use either KVO, delegate, Promises, RxSwift,  or Combine
     var astronautList: AstronautList? = nil {
         didSet {
-            astronautListListener.forEach { $0(astronautList) }
+            astronautListUpdaters.forEach { $0.handler(astronautList) }
         }
     }
-    var astronautListListener: [(AstronautList?)->()] = []
+    var astronautListUpdaters: [AstronautListUpdater] = []
 
     var astronautDetail: AstronautDetail? = nil  {
         didSet {
-            astronautDetailListener.forEach { $0(astronautDetail) }
+            astronautDetailUpdaters.forEach { $0.handler(astronautDetail) }
         }
     }
-
-    var astronautDetailListener: [(AstronautDetail?)->()] = []
+    var astronautDetailUpdaters: [AstronautDetailUpdater] = []
     
 
-    var error: String? = nil {
+    var error: Error? = nil {
         didSet {
-            astronautDetailListener.forEach { $0(astronautDetail) }
+            if let error = error {
+                errorUpdaters.forEach { $0.handler(error) }
+            }
         }
     }
-
-    var errorListener: [(String?)->()] = []
+    var errorUpdaters: [ErrorUpdater] = []
 }

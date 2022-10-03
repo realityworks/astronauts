@@ -9,11 +9,11 @@ import Foundation
 
 protocol APIService {
     func loadAstronoutsList(
-        completionHandler: @escaping () -> AstronautList
+        completionHandler: @escaping (AstronautList?, Error?) -> Void
     )
 
     func loadAstronautDetail(
         for astronaut: Astronaut,
-        completionHandler: @escaping () -> AstronautDetail
+        completionHandler: @escaping (AstronautDetail?, Error?) -> Void
     )
 }
