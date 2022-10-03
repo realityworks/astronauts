@@ -10,6 +10,7 @@ import Foundation
 protocol AstronautListViewModelDelegate {
     func startLoading()
     func didLoadData()
+    func failedLoading()
 }
 
 class AstronautListViewModel {
@@ -45,7 +46,8 @@ class AstronautListViewModel {
 
     func load() {
         guard let useCase = astronautListUseCase else {
-            store.errorOccured("No use case available to work with") 
+            store.errorOccured("No use case available to work with")
+            delegate?.failedLoading()
             return
         }
 

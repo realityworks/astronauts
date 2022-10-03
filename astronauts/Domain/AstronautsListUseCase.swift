@@ -29,6 +29,8 @@ class AstronautsListUseCase: UseCase {
 
             if let error = error {
                 self.store.errorOccured(error)
+                self.store.astronautList = nil
+
                 return
             }
 

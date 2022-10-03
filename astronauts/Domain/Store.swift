@@ -17,7 +17,7 @@ import Foundation
 
     private var useCaseFactory: UseCaseFactory? = nil
     static func initialise(useCases: UseCaseFactory) {
-        shared.useCaseFactory = UseCaseFactory()
+        shared.useCaseFactory = useCases
     }
 
     func build<T: UseCase>(_ type: T.Type) -> T? {

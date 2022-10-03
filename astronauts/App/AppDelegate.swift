@@ -14,30 +14,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         // Must be done before creating any ViewControllers
-        
-        let useCaseFactory = UseCaseFactory()
-        useCaseFactory.register(
-            useCase: AstronautsListUseCase.self,
-            instance: AstronautsListUseCase()
-        )
 
-        Store.initialise(useCases: useCaseFactory)
-
-        // Basic error handling
-        Store.shared.errorUpdaters.append(
-            .init(handler: { [unowned self] error in
-                let alertVC = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
-                self.window?.rootViewController?.present(alertVC, animated: true)
-            })
-        )
-
-        // Override point for customization after application launch.
-        let vc = AstronautListViewController()
-        let nvc = UINavigationController(rootViewController: vc)
-
-        self.window?.rootViewController = nvc
-        self.window?.makeKeyAndVisible()
-        return true
+        if #available(iOS 13.0, *) {
+            return false
+        } else {
+            let useCaseFactory = UseCaseFactory()
+            useCaseFactory.register(
+                useCase: AstronautsListUseCase.self,
+                instance: AstronautsListUseCase()
+            )
+            
+            Store.initialise(useCases: useCaseFactory)
+            
+            // Basic error handling
+            Store.shared.errorUpdaters.append(
+                .init(handler: { [unowned self] error in
+                    let alertVC = UIAlertController(
+                        title: "Error",
+                        message: error.localizedDescription,
+                        preferredStyle: .alert
+                    )
+                    
+                    let action = UIAlertAction(title: "OK", style: .default)
+                    alertVC.addAction(action)
+                    
+                    self.window?.rootViewController?.present(alertVC, animated: true)
+                })
+            )
+            
+            // Override point for customization after application launch.
+            let vc = AstronautListViewController()
+            let nvc = UINavigationController(rootViewController: vc)
+            
+            self.window?.rootViewController = nvc
+            self.window?.makeKeyAndVisible()
+            return true
+        }
     }
 }
 

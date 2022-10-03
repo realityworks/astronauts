@@ -38,7 +38,7 @@ class AstronautTableViewCell: UITableViewCell {
         // Configure nameLabel view
         contentView.addSubview(nameLabel)
 
-        nameLabel.font = .boldSystemFont(ofSize: 18)
+        nameLabel.font = .boldSystemFont(ofSize: 24)
         nameLabel.numberOfLines = 0
 
         nameLabel.leftToRight(of: imageContainer, offset: 8)
@@ -48,14 +48,14 @@ class AstronautTableViewCell: UITableViewCell {
         // Configure nationalityLabel
         contentView.addSubview(nationalityLabel)
 
-        nationalityLabel.font = .systemFont(ofSize: 14)
+        nationalityLabel.font = .systemFont(ofSize: 18)
         nationalityLabel.numberOfLines = 0
         nationalityLabel.lineBreakMode = .byWordWrapping
 
         nationalityLabel.leftToRight(of: imageContainer, offset: 8)
-        nationalityLabel.topToBottom(of: nameLabel, offset: 16)
+        nationalityLabel.topToBottom(of: nameLabel, offset: 8)
         nationalityLabel.rightToSuperview()
-        nationalityLabel.bottomToSuperview()
+        nationalityLabel.bottomToSuperview(offset: -16)
     }
 
     required init?(coder: NSCoder) {

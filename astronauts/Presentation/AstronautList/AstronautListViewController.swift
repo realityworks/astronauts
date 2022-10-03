@@ -32,6 +32,8 @@ class AstronautListViewController: UIViewController {
         // Do any additional setup after loading the view.
         style()
         configure()
+
+        viewModel.load()
     }
 
     private func style() {
@@ -76,7 +78,18 @@ class AstronautListViewController: UIViewController {
     @objc
     private func reload(sender: AnyObject) {
         viewModel.load()
-        self.refreshControl.endRefreshing()
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [weak self] in
+            guard let self = self else {
+                return
+            }
+
+            if self.refreshControl.isRefreshing == true {
+                self.tableView.beginUpdates()
+                self.refreshControl.endRefreshing()
+                self.tableView.endUpdates()
+            }
+        }
     }
 
     /*
@@ -89,19 +102,31 @@ class AstronautListViewController: UIViewController {
     }
     */
 
+    private func finishedLoading() {
+        tableView.reloadData()
+        tableView.isHidden = false
+
+        loadingView.active = false
+        loadingView.isHidden = true
+    }
 }
 
 // MARK: View Model Delegate
 
 extension AstronautListViewController: AstronautListViewModelDelegate {
+
+    func failedLoading() {
+        finishedLoading()
+    }
+
     func startLoading() {
         tableView.isHidden = true
+
+        loadingView.active = true
         loadingView.isHidden = false
     }
 
     func didLoadData() {
-        tableView.reloadData()
-        tableView.isHidden = false
-        loadingView.isHidden = true
+        finishedLoading()
     }
 }

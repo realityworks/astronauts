@@ -31,7 +31,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Basic error handling
         Store.shared.errorUpdaters.append(
             .init(handler: { [unowned self] error in
-                let alertVC = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+                let alertVC = UIAlertController(
+                    title: "Error",
+                    message: error.localizedDescription,
+                    preferredStyle: .alert
+                )
+
+                let action = UIAlertAction(title: "OK", style: .default)
+                alertVC.addAction(action)
+
                 self.window?.rootViewController?.present(alertVC, animated: true)
             })
         )

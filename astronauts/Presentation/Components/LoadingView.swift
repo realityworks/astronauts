@@ -11,6 +11,16 @@ import TinyConstraints
 class LoadingView: UIView {
     private let activityIndicator: UIActivityIndicatorView = .init()
 
+    var active: Bool = false {
+        didSet {
+            if active {
+                activityIndicator.startAnimating()
+            } else {
+                activityIndicator.stopAnimating()
+            }
+        }
+    }
+
     override init(frame: CGRect = .zero) {
         super.init(frame: frame)
         configureView()
