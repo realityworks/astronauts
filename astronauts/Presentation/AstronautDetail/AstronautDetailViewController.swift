@@ -39,31 +39,52 @@ class AstronautDetailViewController: UIViewController {
         // Setup view
         view.backgroundColor = .white
 
-        // Setup Bio
-        view.addSubview(biographyLabel)
-        biographyLabel.font = .systemFont(ofSize: 18)
-        biographyLabel.centerInSuperview(offset: .init(x: 0, y: -30))
-        biographyLabel.width(250)
-        biographyLabel.lineBreakMode = .byWordWrapping
-        biographyLabel.numberOfLines = 0
-        biographyLabel.text = "asdasd asd asd asd asdas dasdahsd oasdh asiudhasiu dhasiudh asiudh asiudh asiudh aisudh asiudhas iudasiduasiuhd as"
-
-        // Setup Date of Birth
-
         // Setup Name
         view.addSubview(nameLabel)
 
         nameLabel.font = .boldSystemFont(ofSize: 24)
         nameLabel.numberOfLines = 1
 
-        nameLabel.left(to: biographyLabel)
-        nameLabel.right(to: biographyLabel)
+        nameLabel.leftToSuperview(offset: 16)
+        nameLabel.rightToSuperview(offset: -16)
         nameLabel.height(30)
-        nameLabel.bottomToTop(of: biographyLabel)
+        nameLabel.topToSuperview(offset: 36, usingSafeArea: true)
+
+        // Setup Date of Birth
+        view.addSubview(dateOfBirthLabel)
+
+        dateOfBirthLabel.font = .boldSystemFont(ofSize: 20)
+        dateOfBirthLabel.numberOfLines = 1
+
+        dateOfBirthLabel.leftToSuperview(offset: 16)
+        dateOfBirthLabel.rightToSuperview(offset: -16)
+        dateOfBirthLabel.height(30)
+        dateOfBirthLabel.topToBottom(of: nameLabel)
+
+        // Setup Bio
+        view.addSubview(biographyLabel)
+        biographyLabel.font = .systemFont(ofSize: 18)
+        biographyLabel.topToBottom(of: dateOfBirthLabel)
+        biographyLabel.leftToSuperview(offset: 16)
+        biographyLabel.rightToSuperview(offset: -16)
+        biographyLabel.lineBreakMode = .byWordWrapping
+        biographyLabel.numberOfLines = 0
+
+        // Setup loading view
+        view.addSubview(loadingView)
+        loadingView.edgesToSuperview()
     }
 
     private func configure() {
         viewModel.delegate = self
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        viewModel.delegate = self
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        viewModel.delegate = nil
     }
 
     /*
@@ -80,14 +101,19 @@ class AstronautDetailViewController: UIViewController {
 
 extension AstronautDetailViewController: AstronautListViewModelDelegate {
     func startLoading() {
-
+        loadingView.isHidden = false
+        loadingView.active = true
     }
 
     func didLoadData() {
-
+        nameLabel.text = viewModel.name
+        dateOfBirthLabel.text = viewModel.dateOfBirth
+        biographyLabel.text = viewModel.bio
+        loadingView.isHidden = true
+        loadingView.active = false
     }
 
     func failedLoading() {
-
+        // Do nothing
     }
 }

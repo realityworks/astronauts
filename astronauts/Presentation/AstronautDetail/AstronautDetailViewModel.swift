@@ -46,9 +46,11 @@ class AstronautDetailViewModel {
     func loadSelectedAstronaut() {
         guard let selectedAstronautId = store.selectedAstronautId else {
             store.errorOccured("No selected astronaut")
+            delegate?.failedLoading()
             return
         }
 
+        delegate?.startLoading()
         astronautDataUseCase?.loadAstronautDetails(for: selectedAstronautId)
     }
 }
