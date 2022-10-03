@@ -71,19 +71,19 @@ extension AstronautDetailViewModel {
     }
 
     var bio: String {
-        guard let astronautDetail = store.astronautDetail else {
+        guard let bio = store.astronautDetail?.bio else {
             return "N/A"
         }
 
-        return astronautDetail.bio
+        return bio
     }
 
     var dateOfBirth: String {
-        guard let astronautDetail = store.astronautDetail else {
+        guard let dob = store.astronautDetail?.date_of_birth else {
             return "N/A"
         }
 
-        return astronautDetail.date_of_birth
+        return dob
     }
 }
 

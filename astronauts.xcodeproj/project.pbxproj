@@ -36,6 +36,7 @@
 		1D787A1C28EA645F007F0F3B /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D787A1A28EA645F007F0F3B /* UIImageView+Extensions.swift */; };
 		1D787A1D28EA645F007F0F3B /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D787A1B28EA645F007F0F3B /* String+Extensions.swift */; };
 		1D787A1F28EA65BF007F0F3B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D787A1E28EA65BF007F0F3B /* SceneDelegate.swift */; };
+		1D79EBA528EB7BB4004BDAE5 /* Flight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D79EBA428EB7BB4004BDAE5 /* Flight.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,7 @@
 		1D787A1A28EA645F007F0F3B /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		1D787A1B28EA645F007F0F3B /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		1D787A1E28EA65BF007F0F3B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		1D79EBA428EB7BB4004BDAE5 /* Flight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flight.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,6 +255,7 @@
 				1D787A1028EA6458007F0F3B /* AstronautList.swift */,
 				1D787A1128EA6458007F0F3B /* AstronautDetail.swift */,
 				1D787A1228EA6458007F0F3B /* Astronaut.swift */,
+				1D79EBA428EB7BB4004BDAE5 /* Flight.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -423,6 +426,7 @@
 				1D7879F428EA644A007F0F3B /* UseCaseFactory.swift in Sources */,
 				1D787A0228EA6451007F0F3B /* AstronautDetailViewController.swift in Sources */,
 				1D787A0628EA6451007F0F3B /* AstronautListViewModel.swift in Sources */,
+				1D79EBA528EB7BB4004BDAE5 /* Flight.swift in Sources */,
 				1D7879F128EA644A007F0F3B /* Updater.swift in Sources */,
 				1D787A0428EA6451007F0F3B /* LoadingView.swift in Sources */,
 			);

@@ -25,13 +25,13 @@ class AstronautTableViewCell: UITableViewCell {
         imageContainer.leftToSuperview()
         imageContainer.topToSuperview()
         imageContainer.bottomToSuperview()
-        imageContainer.width(100)
+        imageContainer.width(120)
         imageContainer.aspectRatio(1)
 
         imageContainer.addSubview(thumbnailImageView)
         thumbnailImageView.centerYToSuperview()
         thumbnailImageView.centerXToSuperview()
-        thumbnailImageView.width(90)
+        thumbnailImageView.width(100)
         thumbnailImageView.aspectRatio(1)
         thumbnailImageView.contentMode = .scaleAspectFit
 
@@ -39,7 +39,7 @@ class AstronautTableViewCell: UITableViewCell {
         contentView.addSubview(nameLabel)
 
         nameLabel.font = .boldSystemFont(ofSize: 24)
-        nameLabel.numberOfLines = 0
+        nameLabel.numberOfLines = 1
 
         nameLabel.leftToRight(of: imageContainer, offset: 8)
         nameLabel.rightToSuperview()

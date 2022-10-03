@@ -46,7 +46,7 @@ class AstronautListViewController: UIViewController {
         tableView.edgesToSuperview()
         tableView.allowsSelection = true
         tableView.estimatedRowHeight = 140
-        tableView.estimatedSectionHeaderHeight = 60
+        tableView.estimatedSectionHeaderHeight = 100
 
         tableView.sectionHeaderHeight = UITableView.automaticDimension
         tableView.rowHeight = UITableView.automaticDimension

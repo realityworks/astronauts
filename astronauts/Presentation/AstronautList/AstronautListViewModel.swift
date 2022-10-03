@@ -77,7 +77,7 @@ class AstronautListViewModel {
             return nil
         }
 
-        guard index < list.count else {
+        guard index < list.results.count else {
             store.errorOccured("This is beyond the end of the astronaut list")
             return nil
         }
@@ -112,7 +112,7 @@ class AstronautListViewModel {
 
 extension AstronautListViewModel {
     var numberOfAstronaughts: Int {
-        store.astronautList?.count ?? 0
+        store.astronautList?.results.count ?? 0
     }
 }
 

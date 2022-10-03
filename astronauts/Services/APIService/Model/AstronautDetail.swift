@@ -8,6 +8,8 @@
 import Foundation
 
 struct AstronautDetail: Codable {
-    let bio: String
-    let date_of_birth: String
+    let id: Int
+    let bio: String?
+    let date_of_birth: String?
+    //let flights: [Flight]
 }

@@ -47,8 +47,14 @@ class RealAPIService: APIService {
 
     func loadAstronautDetail(for astronautId: Astronaut.ID, completionHandler: @escaping (AstronautDetail?, Error?) -> Void) {
         // GET http://spacelaunchnow.me/api/3.5.0/astronaut/<astronautId>
-        guard let url = URL(string: "https://spacelaunchnow.me/api/3.5.0/astronaut/") else {
+        guard var url = URL(string: "https://spacelaunchnow.me/api/3.5.0/astronaut/") else {
             return
+        }
+
+        if #available(iOS 16, *) {
+            url.append(component: "\(astronautId)")
+        } else {
+            url.appendPathComponent("\(astronautId)")
         }
 
         URLSession.shared.dataTask(with: url) { data, response, error in
