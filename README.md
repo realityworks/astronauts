@@ -20,25 +20,50 @@ System Breakdown:
 
 DATA MODEL 
     - List of Astronauts. 
+
     - Individual Astronaut.
+
     - Detail of an Astronaut.
+
+
 DOMAIN:
+
     UseCase
+
         - Load the list of Astronauts and details for an Astronaut
-    Store 
+
+    Store
+
         - Manages the shared app state, as example of how we can separate concerns between the presentation layer and the business logic
-SERVICES 
+
+
+SERVICES
+
     - API web service to load the data model using URLSession
+
+
 UTILITIES
+
     - UI Component management to simplify non-storyboard layout : TinyContraints
+
+
 USER INTERFACE
+
     - MainViewController
+
         - Table/List View
+
             - Individual Cell
+
                 - Text
+
                 - Lazy loaded icon
+
     - DetailViewController
+
         - Text details
 
+
 Dependency injection for view models
+
 Basic dependency injection using a builder factory model for classes, as an example of how we could do DI.
