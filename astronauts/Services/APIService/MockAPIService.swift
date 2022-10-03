@@ -50,7 +50,8 @@ class MockAPIService: APIService {
             let astronautDetail: AstronautDetail = .init(
                 id: 10,
                 bio: "This is some text, really nice stuff. With some additoinal text to make this long enough so that we have a large bio",
-                date_of_birth: "25 Jan 2021"
+                date_of_birth: "25 Jan 2021",
+                flights: []
             )
 
             completionHandler(astronautDetail, nil)

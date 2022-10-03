@@ -11,5 +11,5 @@ struct AstronautDetail: Codable {
     let id: Int
     let bio: String?
     let date_of_birth: String?
-    //let flights: [Flight]
+    let flights: [Flight]
 }

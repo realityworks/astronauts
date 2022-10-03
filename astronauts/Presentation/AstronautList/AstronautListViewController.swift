@@ -46,9 +46,6 @@ class AstronautListViewController: UIViewController {
         tableView.edgesToSuperview()
         tableView.allowsSelection = true
         tableView.estimatedRowHeight = 140
-        tableView.estimatedSectionHeaderHeight = 100
-
-        tableView.sectionHeaderHeight = UITableView.automaticDimension
         tableView.rowHeight = UITableView.automaticDimension
 
         tableView.separatorStyle = .none
@@ -59,7 +56,6 @@ class AstronautListViewController: UIViewController {
 
         // Main view setup
         title = "ASTRONAUTS"
-        view.backgroundColor = .lightGray
     }
 
     private func configure() {

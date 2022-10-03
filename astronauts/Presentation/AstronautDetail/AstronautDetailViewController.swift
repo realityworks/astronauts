@@ -13,8 +13,9 @@ class AstronautDetailViewController: UIViewController {
 
     // Views
     private let nameLabel = UILabel()
-    private let biographyLabel = UILabel()
     private let dateOfBirthLabel = UILabel()
+    private let numFlightsLabel = UILabel()
+    private let biographyTextView = UITextView()
     private let loadingView = LoadingView()
 
     init() {
@@ -48,7 +49,7 @@ class AstronautDetailViewController: UIViewController {
         nameLabel.leftToSuperview(offset: 16)
         nameLabel.rightToSuperview(offset: -16)
         nameLabel.height(30)
-        nameLabel.topToSuperview(offset: 36, usingSafeArea: true)
+        nameLabel.topToSuperview(offset: 24, usingSafeArea: true)
 
         // Setup Date of Birth
         view.addSubview(dateOfBirthLabel)
@@ -59,16 +60,26 @@ class AstronautDetailViewController: UIViewController {
         dateOfBirthLabel.leftToSuperview(offset: 16)
         dateOfBirthLabel.rightToSuperview(offset: -16)
         dateOfBirthLabel.height(30)
-        dateOfBirthLabel.topToBottom(of: nameLabel)
+        dateOfBirthLabel.topToBottom(of: nameLabel, offset: 8)
+
+        // Setup Number of Flights
+        view.addSubview(numFlightsLabel)
+
+        numFlightsLabel.font = .boldSystemFont(ofSize: 20)
+        numFlightsLabel.numberOfLines = 1
+
+        numFlightsLabel.leftToSuperview(offset: 16)
+        numFlightsLabel.rightToSuperview(offset: -16)
+        numFlightsLabel.height(30)
+        numFlightsLabel.topToBottom(of: dateOfBirthLabel)
 
         // Setup Bio
-        view.addSubview(biographyLabel)
-        biographyLabel.font = .systemFont(ofSize: 18)
-        biographyLabel.topToBottom(of: dateOfBirthLabel)
-        biographyLabel.leftToSuperview(offset: 16)
-        biographyLabel.rightToSuperview(offset: -16)
-        biographyLabel.lineBreakMode = .byWordWrapping
-        biographyLabel.numberOfLines = 0
+        view.addSubview(biographyTextView)
+        biographyTextView.font = .systemFont(ofSize: 16)
+        biographyTextView.topToBottom(of: numFlightsLabel)
+        biographyTextView.leftToSuperview(offset: 16)
+        biographyTextView.rightToSuperview(offset: -16)
+        biographyTextView.bottomToSuperview(offset: -8, usingSafeArea: true)
 
         // Setup loading view
         view.addSubview(loadingView)
@@ -77,6 +88,7 @@ class AstronautDetailViewController: UIViewController {
 
     private func configure() {
         viewModel.delegate = self
+        biographyTextView.isEditable = false
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -107,8 +119,9 @@ extension AstronautDetailViewController: AstronautDetailViewModelDelegate {
 
     func didLoadData() {
         nameLabel.text = viewModel.name
+        numFlightsLabel.text = viewModel.numFlights
         dateOfBirthLabel.text = viewModel.dateOfBirth
-        biographyLabel.text = viewModel.bio
+        biographyTextView.text = viewModel.bio
         loadingView.isHidden = true
         loadingView.active = false
     }

@@ -28,9 +28,8 @@ class AstronautsDataUseCase: UseCase {
             }
 
             if let error = error {
-                self.store.errorOccured(error)
                 self.store.astronautList = nil
-
+                self.store.errorOccured(error)
                 return
             }
 
@@ -46,6 +45,7 @@ class AstronautsDataUseCase: UseCase {
             }
 
             if let error = error {
+                self.store.astronautDetail = nil
                 self.store.errorOccured(error)
                 return
             }

@@ -78,12 +78,20 @@ extension AstronautDetailViewModel {
         return bio
     }
 
+    var numFlights: String {
+        guard let numFlights = store.astronautDetail?.flights.count else {
+            return "N/A"
+        }
+
+        return "Has flown \(numFlights) flight\(numFlights == 1 ? "" : "s")"
+    }
+
     var dateOfBirth: String {
         guard let dob = store.astronautDetail?.date_of_birth else {
             return "N/A"
         }
 
-        return dob
+        return "Born \(dob)"
     }
 }
 
