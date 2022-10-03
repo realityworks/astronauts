@@ -99,7 +99,7 @@ class AstronautDetailViewController: UIViewController {
 
 }
 
-extension AstronautDetailViewController: AstronautListViewModelDelegate {
+extension AstronautDetailViewController: AstronautDetailViewModelDelegate {
     func startLoading() {
         loadingView.isHidden = false
         loadingView.active = true

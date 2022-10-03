@@ -40,6 +40,8 @@ class AstronautListViewController: UIViewController {
         self.view.addSubview(tableView)
         self.view.addSubview(loadingView)
 
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "SORT", style: .plain, target: self, action: #selector(sortTapped))
+
         // Setup TableView
         tableView.edgesToSuperview()
         tableView.allowsSelection = true
@@ -73,7 +75,12 @@ class AstronautListViewController: UIViewController {
         viewModel.delegate = self
     }
 
-    // MARK: Load
+    // MARK: Selectors
+
+    @objc
+    private func sortTapped(sender: AnyObject) {
+        viewModel.toggleSortByName()
+    }
 
     @objc
     private func reload(sender: AnyObject) {
@@ -114,7 +121,6 @@ class AstronautListViewController: UIViewController {
 // MARK: View Model Delegate
 
 extension AstronautListViewController: AstronautListViewModelDelegate {
-
     func failedLoading() {
         finishedLoading()
     }
@@ -128,5 +134,9 @@ extension AstronautListViewController: AstronautListViewModelDelegate {
 
     func didLoadData() {
         finishedLoading()
+    }
+
+    func changedSortingMethod() {
+        tableView.reloadData()
     }
 }

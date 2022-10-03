@@ -11,6 +11,7 @@ protocol AstronautListViewModelDelegate {
     func startLoading()
     func didLoadData()
     func failedLoading()
+    func changedSortingMethod()
 }
 
 class AstronautListViewModel {
@@ -18,6 +19,14 @@ class AstronautListViewModel {
     private let astronautDataUseCase: AstronautsDataUseCase?
     private var astronautListUpdater: AstronautListUpdater? = nil
 
+    private (set) var sortedByName: Bool = false {
+        didSet {
+            delegate?.changedSortingMethod()
+        }
+    }
+
+    private var sortedByNameList: [Astronaut] = []
+    
     var delegate: AstronautListViewModelDelegate? =  nil
 
     init(dependencies: Dependencies = AstronautListViewModel.real) {
@@ -27,7 +36,14 @@ class AstronautListViewModel {
 
         astronautListUpdater = .init(handler: { [weak self] list in
             DispatchQueue.main.async {
-                self?.delegate?.didLoadData()
+                guard let self = self else {
+                    return
+                }
+
+                self.sortedByNameList = list?.results
+                    .sorted(by: { $0.name < $1.name }) ?? []
+
+                self.delegate?.didLoadData()
             }
         })
 
@@ -66,6 +82,10 @@ class AstronautListViewModel {
             return nil
         }
 
+        if sortedByName {
+            return sortedByNameList[index]
+        }
+
         return list.results[index]
     }
 
@@ -77,6 +97,10 @@ class AstronautListViewModel {
         }
 
         useCase.selectAstronaut(withId: id)
+    }
+
+    func toggleSortByName() {
+        sortedByName = !sortedByName
     }
 
     func error(_ error: Error) {

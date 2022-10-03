@@ -18,7 +18,7 @@ class AstronautDetailViewModel {
     private let astronautDataUseCase: AstronautsDataUseCase?
     private var astronautDetailUpdater: AstronautDetailUpdater? = nil
 
-    var delegate: AstronautListViewModelDelegate? = nil
+    var delegate: AstronautDetailViewModelDelegate? = nil
 
     init(dependencies: Dependencies = AstronautDetailViewModel.real) {
         self.store = dependencies.store
