@@ -118,12 +118,14 @@ extension AstronautDetailViewController: AstronautDetailViewModelDelegate {
     }
 
     func didLoadData() {
-        nameLabel.text = viewModel.name
-        numFlightsLabel.text = viewModel.numFlights
-        dateOfBirthLabel.text = viewModel.dateOfBirth
-        biographyTextView.text = viewModel.bio
-        loadingView.isHidden = true
-        loadingView.active = false
+        if navigationController?.visibleViewController == self {
+            nameLabel.text = viewModel.name
+            numFlightsLabel.text = viewModel.numFlights
+            dateOfBirthLabel.text = viewModel.dateOfBirth
+            biographyTextView.text = viewModel.bio
+            loadingView.isHidden = true
+            loadingView.active = false
+        }
     }
 
     func failedLoading() {
