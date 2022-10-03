@@ -29,7 +29,7 @@ import Foundation
     }
 
     func errorOccured(_ newError: Error) {
-        // Handle error state management
+        // Handle error state management, always do this on the main thread!
         error = newError
     }
 

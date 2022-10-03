@@ -25,7 +25,7 @@ class RealAPIService: APIService {
     func loadAstronoutsList(completionHandler: @escaping (AstronautList?, Error?) -> Void) {
         // GET http://spacelaunchnow.me/api/3.5.0/astronaut/
 
-        guard let url = URL(string: "http://spacelaunchnow.me/api/3.5.0/astronaut/") else {
+        guard let url = URL(string: "https://spacelaunchnow.me/api/3.5.0/astronaut/") else {
             return
         }
 
@@ -38,6 +38,7 @@ class RealAPIService: APIService {
             do {
                 let decoder = JSONDecoder()
                 let astronauts = try decoder.decode(AstronautList.self, from: data)
+                completionHandler(astronauts, nil)
             } catch {
                 completionHandler(nil, error)
             }
@@ -45,8 +46,8 @@ class RealAPIService: APIService {
     }
 
     func loadAstronautDetail(for astronautId: Astronaut.ID, completionHandler: @escaping (AstronautDetail?, Error?) -> Void) {
-        // GEThttp://spacelaunchnow.me/api/3.5.0/astronaut/<astronautId>
-        guard let url = URL(string: "http://spacelaunchnow.me/api/3.5.0/astronaut/") else {
+        // GET http://spacelaunchnow.me/api/3.5.0/astronaut/<astronautId>
+        guard let url = URL(string: "https://spacelaunchnow.me/api/3.5.0/astronaut/") else {
             return
         }
 
@@ -58,7 +59,8 @@ class RealAPIService: APIService {
 
             do {
                 let decoder = JSONDecoder()
-                let astronauts = try decoder.decode(AstronautDetail.self, from: data)
+                let astronautDetail = try decoder.decode(AstronautDetail.self, from: data)
+                completionHandler(astronautDetail, nil)
             } catch {
                 completionHandler(nil, error)
             }

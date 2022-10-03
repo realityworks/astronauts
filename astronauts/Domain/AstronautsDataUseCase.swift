@@ -15,7 +15,7 @@ class AstronautsDataUseCase: UseCase {
     let store: Store
     private let apiService: APIService
 
-    init(dependencies: Dependencies = AstronautsDataUseCase.mock) {
+    init(dependencies: Dependencies = AstronautsDataUseCase.real) {
         self.store = dependencies.store
         self.apiService = dependencies.apiService
     }
