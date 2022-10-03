@@ -70,11 +70,12 @@ extension AstronautsDataUseCase {
         let apiService: APIService
     }
 
-//        static var real: Dependencies = {
-//            Dependencies(
-//                APIService: RealApiService.instance
-//            )
-//        }()
+    static var real: Dependencies = {
+        Dependencies(
+            store: Store.shared,
+            apiService: RealAPIService.instance
+        )
+    }()
 
     static var mock: Dependencies = {
         Dependencies(

@@ -8,7 +8,10 @@
 import Foundation
 
 class RealAPIService: APIService {
-    
+    static var instance: RealAPIService = .init()
+
+    private init() {}
+
     private func success(with data: Data?, _ response: URLResponse?, _ error: Error?) -> Data? {
         guard let httpURLResponse = response as? HTTPURLResponse,
               httpURLResponse.statusCode == 200,
