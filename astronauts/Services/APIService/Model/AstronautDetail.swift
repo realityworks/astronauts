@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct AstronautDetail {
+struct AstronautDetail: Codable {
     let bio: String
     let date_of_birth: String
 }

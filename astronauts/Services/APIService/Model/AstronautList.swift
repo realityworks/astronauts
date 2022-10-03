@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct AstronautList {
+struct AstronautList: Codable {
     let count: Int
     let next: String?
     let previous: String?
