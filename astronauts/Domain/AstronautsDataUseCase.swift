@@ -10,12 +10,12 @@ import Foundation
 /// UseCases in the domain layer handle the business logic.
 /// It shows how good design works in apps.
 
-class AstronautsListUseCase: UseCase {
+class AstronautsDataUseCase: UseCase {
 
     let store: Store
     private let apiService: APIService
 
-    init(dependencies: Dependencies = .mock) {
+    init(dependencies: Dependencies = AstronautsDataUseCase.mock) {
         self.store = dependencies.store
         self.apiService = dependencies.apiService
     }
@@ -39,8 +39,8 @@ class AstronautsListUseCase: UseCase {
     }
 
     // Load astronaut detail
-    func loadAstronautDetails(for astronaut: Astronaut) {
-        apiService.loadAstronautDetail(for: astronaut) { [weak self] detail, error in
+    func loadAstronautDetails(for astronautId: Astronaut.ID) {
+        apiService.loadAstronautDetail(for: astronautId) { [weak self] detail, error in
             guard let self = self else {
                 return
             }
@@ -59,10 +59,11 @@ class AstronautsListUseCase: UseCase {
 
 /// Use case dependencies consiste of the store and the API Services. Generally the store here is for writing
 
-extension AstronautsListUseCase {
+extension AstronautsDataUseCase {
     struct Dependencies {
         let store: Store
         let apiService: APIService
+    }
 
 //        static var real: Dependencies = {
 //            Dependencies(
@@ -70,13 +71,12 @@ extension AstronautsListUseCase {
 //            )
 //        }()
 
-        static var mock: Dependencies = {
-            Dependencies(
-                store: Store.shared,
-                apiService: MockAPIService.instance
-            )
-        }()
-    }
+    static var mock: Dependencies = {
+        Dependencies(
+            store: Store.shared,
+            apiService: MockAPIService.instance
+        )
+    }()
 }
 
 

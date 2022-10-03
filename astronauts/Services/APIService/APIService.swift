@@ -13,7 +13,7 @@ protocol APIService {
     )
 
     func loadAstronautDetail(
-        for astronaut: Astronaut,
+        for astronautId: Astronaut.ID,
         completionHandler: @escaping (AstronautDetail?, Error?) -> Void
     )
 }

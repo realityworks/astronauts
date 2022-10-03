@@ -22,8 +22,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let useCaseFactory = UseCaseFactory()
         useCaseFactory.register(
-            useCase: AstronautsListUseCase.self,
-            instance: AstronautsListUseCase()
+            useCase: AstronautsDataUseCase.self,
+            instance: AstronautsDataUseCase()
         )
 
         Store.initialise(useCases: useCaseFactory)

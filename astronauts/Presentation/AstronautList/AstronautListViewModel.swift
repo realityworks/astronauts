@@ -15,14 +15,14 @@ protocol AstronautListViewModelDelegate {
 
 class AstronautListViewModel {
     private let store: Store
-    private let astronautListUseCase: AstronautsListUseCase?
+    private let astronautDataUseCase: AstronautsDataUseCase?
     private var astronautListUpdater: AstronautListUpdater? = nil
 
     var delegate: AstronautListViewModelDelegate? =  nil
 
-    init(dependencies: Dependencies = .real) {
+    init(dependencies: Dependencies = AstronautListViewModel.real) {
         self.store = dependencies.store
-        self.astronautListUseCase = dependencies.astronautListUseCase
+        self.astronautDataUseCase = dependencies.astronautListUseCase
 
 
         astronautListUpdater = .init(handler: { [weak self] list in
@@ -45,7 +45,7 @@ class AstronautListViewModel {
     }
 
     func load() {
-        guard let useCase = astronautListUseCase else {
+        guard let useCase = astronautDataUseCase else {
             store.errorOccured("No use case available to work with")
             delegate?.failedLoading()
             return
@@ -53,14 +53,6 @@ class AstronautListViewModel {
 
         useCase.loadAstronauts()
         delegate?.startLoading()
-    }
-}
-
-// MARK: Computed properties
-
-extension AstronautListViewModel {
-    var numberOfAstronaughts: Int {
-        store.astronautList?.count ?? 0
     }
 
     func astronautAt(index: Int) -> Astronaut? {
@@ -76,6 +68,22 @@ extension AstronautListViewModel {
 
         return list.results[index]
     }
+
+    func selectAstronaut(id: Astronaut.ID) {
+        store.selectedAstronaut = id
+    }
+
+    func error(_ error: Error) {
+        store.errorOccured(error)
+    }
+}
+
+// MARK: Computed properties
+
+extension AstronautListViewModel {
+    var numberOfAstronaughts: Int {
+        store.astronautList?.count ?? 0
+    }
 }
 
 // MARK: Dependencies
@@ -86,13 +94,13 @@ extension AstronautListViewModel {
 extension AstronautListViewModel {
     struct Dependencies {
         let store: Store
-        let astronautListUseCase: AstronautsListUseCase?
-
-        static var real = {
-            Dependencies(
-                store: Store.shared,
-                astronautListUseCase: Store.shared.build(AstronautsListUseCase.self)
-            )
-        }()
+        let astronautListUseCase: AstronautsDataUseCase?
     }
+
+    static var real = {
+        Dependencies(
+            store: Store.shared,
+            astronautListUseCase: Store.shared.build(AstronautsDataUseCase.self)
+        )
+    }()
 }

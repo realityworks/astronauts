@@ -10,7 +10,7 @@ import UIKit
 class AstronautListViewController: UIViewController {
     // MARK: Model
 
-    let viewModel: AstronautListViewModel = .init()
+    let viewModel = AstronautListViewModel()
 
     // MARK: View
 

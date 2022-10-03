@@ -42,6 +42,7 @@ import Foundation
         }
     }
     var astronautListUpdaters: [AstronautListUpdater] = []
+    var selectedAstronautId: Astronaut.ID? = nil
 
     var astronautDetail: AstronautDetail? = nil  {
         didSet {

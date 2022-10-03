@@ -29,5 +29,13 @@ extension AstronautListViewController: UITableViewDataSource {
 }
 
 extension AstronautListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let astronaut = viewModel.astronautAt(index: indexPath.row) {
+            viewModel.selectAstronaut(id: astronaut.id)
 
+            navigationController?.pushViewController(AstronautDetailViewController(), animated: true)
+        } else {
+            viewModel.error("Astronaught doesn't exist in this cell...")
+        }
+    }
 }
