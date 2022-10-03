@@ -14,9 +14,9 @@ class AstronautListViewController: UIViewController {
 
     // MARK: View
 
-    let tableView = UITableView(frame: .zero, style: .plain)
-    let loadingView = LoadingView()
-    let refreshControl = UIRefreshControl()
+    private let tableView = UITableView(frame: .zero, style: .plain)
+    private let loadingView = LoadingView()
+    private let refreshControl = UIRefreshControl()
 
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -42,7 +42,7 @@ class AstronautListViewController: UIViewController {
 
         // Setup TableView
         tableView.edgesToSuperview()
-        tableView.allowsSelection = false
+        tableView.allowsSelection = true
         tableView.estimatedRowHeight = 140
         tableView.estimatedSectionHeaderHeight = 60
 

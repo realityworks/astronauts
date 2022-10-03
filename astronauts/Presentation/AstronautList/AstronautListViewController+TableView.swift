@@ -37,5 +37,7 @@ extension AstronautListViewController: UITableViewDelegate {
         } else {
             viewModel.error("Astronaught doesn't exist in this cell...")
         }
+
+        tableView.deselectRow(at: indexPath, animated: false)
     }
 }

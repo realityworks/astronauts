@@ -12,7 +12,10 @@ class AstronautDetailViewController: UIViewController {
     let viewModel = AstronautDetailViewModel()
 
     // Views
-    let biographyView = UILabel()
+    private let nameLabel = UILabel()
+    private let biographyLabel = UILabel()
+    private let dateOfBirthLabel = UILabel()
+    private let loadingView = LoadingView()
 
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -26,10 +29,42 @@ class AstronautDetailViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-//        style()
-//        configure()
+        style()
+        configure()
+
+        viewModel.loadSelectedAstronaut()
     }
-    
+
+    private func style() {
+        // Setup view
+        view.backgroundColor = .white
+
+        // Setup Bio
+        view.addSubview(biographyLabel)
+        biographyLabel.font = .systemFont(ofSize: 18)
+        biographyLabel.centerInSuperview(offset: .init(x: 0, y: -30))
+        biographyLabel.width(250)
+        biographyLabel.lineBreakMode = .byWordWrapping
+        biographyLabel.numberOfLines = 0
+        biographyLabel.text = "asdasd asd asd asd asdas dasdahsd oasdh asiudhasiu dhasiudh asiudh asiudh asiudh aisudh asiudhas iudasiduasiuhd as"
+
+        // Setup Date of Birth
+
+        // Setup Name
+        view.addSubview(nameLabel)
+
+        nameLabel.font = .boldSystemFont(ofSize: 24)
+        nameLabel.numberOfLines = 1
+
+        nameLabel.left(to: biographyLabel)
+        nameLabel.right(to: biographyLabel)
+        nameLabel.height(30)
+        nameLabel.bottomToTop(of: biographyLabel)
+    }
+
+    private func configure() {
+        viewModel.delegate = self
+    }
 
     /*
     // MARK: - Navigation
@@ -41,4 +76,18 @@ class AstronautDetailViewController: UIViewController {
     }
     */
 
+}
+
+extension AstronautDetailViewController: AstronautListViewModelDelegate {
+    func startLoading() {
+
+    }
+
+    func didLoadData() {
+
+    }
+
+    func failedLoading() {
+
+    }
 }

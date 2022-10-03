@@ -70,7 +70,13 @@ class AstronautListViewModel {
     }
 
     func selectAstronaut(id: Astronaut.ID) {
-        store.selectedAstronaut = id
+        guard let useCase = astronautDataUseCase else {
+            store.errorOccured("No use case available to work with")
+            delegate?.failedLoading()
+            return
+        }
+
+        useCase.selectAstronaut(withId: id)
     }
 
     func error(_ error: Error) {

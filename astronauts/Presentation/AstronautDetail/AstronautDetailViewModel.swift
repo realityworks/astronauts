@@ -35,6 +35,14 @@ class AstronautDetailViewModel {
         }
     }
 
+    deinit {
+        guard let index = store.astronautDetailUpdaters.firstIndex(where: { $0 == astronautDetailUpdater }) else {
+            return
+        }
+
+        store.astronautDetailUpdaters.remove(at: index)
+    }
+
     func loadSelectedAstronaut() {
         guard let selectedAstronautId = store.selectedAstronautId else {
             store.errorOccured("No selected astronaut")

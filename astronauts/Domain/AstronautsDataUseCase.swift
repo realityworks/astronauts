@@ -53,6 +53,11 @@ class AstronautsDataUseCase: UseCase {
             self.store.astronautDetail = detail
         }
     }
+
+    // Set the selected astronaut
+    func selectAstronaut(withId id: Astronaut.ID) {
+        store.selectedAstronautId = id
+    }
 }
 
 // MARK: Dependencies
